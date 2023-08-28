@@ -49,7 +49,7 @@ st.caption("**There are " + str(row_count) + " scenarios in the set.**")
 col1, col2 = st.columns(2)
 with col1:
     question = st.button(
-    "Pick a question", on_click=pick_fn, key="Pick", use_container_width=True
+           "Pick a question", on_click=pick_fn, key="Pick", use_container_width=True,
         )
 
 with col2:
@@ -63,13 +63,12 @@ if question or st.session_state.pick_clicked:
     if st.session_state.show_clicked:
         st.markdown(
                 f'<h1><span>{rows[st.session_state.q_no_temp].Question}</span></h1>',
-               # f'<h1><span>{rows[st.session_state.q_no_temp].Question}</span></h1><h4>&mdash; Question no. {st.session_state.q_no_temp+1}</em></h4>',
             unsafe_allow_html=True,
             )
     else:
         st.markdown(
-                f'<h1><span>{rows[st.session_state.q_no].Question}</span></h1><h4>&mdash; Question no. {st.session_state.q_no+1}</em></h4>',
-                unsafe_allow_html=True,
+                f'<h1><span>{rows[st.session_state.q_no].Question}</span></h1>',
+            unsafe_allow_html=True,
             )
 
         st.session_state.q_no_temp = st.session_state.q_no
